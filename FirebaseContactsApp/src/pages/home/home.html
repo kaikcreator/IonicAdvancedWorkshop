@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Contacts list
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let contact of contacts">
+      <h2>{{contact.name}} {{contact.last_name}}</h2>
+      <h3>{{contact.birth_date}}</h3>
+      <p>{{contact.address}} - {{contact.postal_code}}</p>
+    </ion-item>
+</ion-list>  
+</ion-content>

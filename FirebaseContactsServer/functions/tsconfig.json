@@ -1,0 +1,43 @@
+
+{
+    "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs",
+      "outDir": "./",
+      "noImplicitAny": true,
+      "strictNullChecks": true,
+      "allowSyntheticDefaultImports": true,
+      "declaration": false,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "sourceMap": true
+    },
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+  }
+
+  /* {
+    "compilerOptions": {
+      "lib": [
+        "dom",
+        "es2015"
+      ],
+      "module": "es2015",
+      "moduleResolution": "node",
+      "target": "es5"
+    },
+    "include": [
+      "src/**\/*.ts"
+    ],
+    "exclude": [
+      "node_modules"
+    ],
+    "compileOnSave": false,
+    "atom": {
+      "rewriteTsconfig": false
+    }
+  } */
