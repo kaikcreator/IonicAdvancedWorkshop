@@ -1,4 +1,4 @@
-import { Contact, IContact} from '../../../FirebaseContactsServer/functions/src/models';
+import { Contact, IContact} from './contacts';
 
 
 export {

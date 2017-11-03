@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { Api } from '../../providers/api/api';
-import { IContact } from '../../models/index';
-
+import { NavController, ModalController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
+
+import { IContact } from '../../models';
+import { ContactsProvider } from '../../providers';
+import { AddContactPage } from '../add-contact/add-contact';
 
 @Component({
   selector: 'page-home',
@@ -13,15 +14,26 @@ export class HomePage {
 
   public contacts:IContact[] = null;
 
-  constructor(public navCtrl: NavController, public api: Api) {
-  }
+  constructor(
+    public navCtrl: NavController, 
+    public contactsProvider: ContactsProvider,
+    public modalCtrl: ModalController
+  ) { }
 
   ionViewDidLoad(){
-    this.api.get('contacts',null)
-    .map(data => Object.keys(data).map(k => data[k]))
-    .subscribe(items => {
-      this.contacts = <IContact[]>items;
+    this.contactsProvider.getContacts().subscribe(items => {
+      this.contacts = items;
     });
+  }
+
+  presentAddContactPage(){
+    let modal = this.modalCtrl.create(AddContactPage);
+    modal.present();
+    modal.onDidDismiss(()=>{
+      this.contactsProvider.getContacts().subscribe(items => {
+        this.contacts = items;
+      });
+    })
   }
 
 }

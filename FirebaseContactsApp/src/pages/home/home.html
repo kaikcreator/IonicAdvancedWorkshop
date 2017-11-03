@@ -13,5 +13,10 @@
       <h3>{{contact.birth_date}}</h3>
       <p>{{contact.address}} - {{contact.postal_code}}</p>
     </ion-item>
-</ion-list>  
+</ion-list>
+
+<ion-fab bottom center>
+  <button ion-fab (click)="presentAddContactPage()"><ion-icon name="add"></ion-icon></button>
+</ion-fab> 
+
 </ion-content>
