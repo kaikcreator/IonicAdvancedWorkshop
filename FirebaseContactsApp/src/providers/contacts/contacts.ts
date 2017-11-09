@@ -34,7 +34,9 @@ export class ContactsProvider {
     const observable = this.api.get('contact',null)
     .map(data => Object.keys(data).map(k => data[k]))
 
-    //TODO: subscribe to the data and transform it to an IContact array 
+    //TODO: subscribe to the data 
+    //the previous data already complies with the IContact interface
+    //so make sure you clarify this to the TS compiler
 
     //TODO: return an object you can subscribe to
     return null;
@@ -51,7 +53,7 @@ export class ContactsProvider {
    * addContact(contact).subscribe(() =\>{}, error =\> alert(error));
    *
    */   
-  addContact(contact:IContact):void{
+  addContact(contact:IContact){
     //TODO: post a new contact
     return null;
   }
