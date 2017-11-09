@@ -1,26 +1,32 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+# FirebaseContactsApp
 
-## How to use this template
+This project is the starting point of the *Ionic Advanced Workshop*
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+## Installation
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
-
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+If you don’t have ionic installed, please, do it:
 
 ```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
+sudo npm install -g ionic
 ```
 
-Then, to run it, cd into `myBlank` and run:
+Of course, you also need Node and npm. Please, use [NVM](https://github.com/creationix/nvm) to install them if needed.
+
+
+Inside the folder FirebaseContactsApp, there's an Ionic v3.8 skeleton app, built with Ionic CLI.
+
+Install the dependencies
 
 ```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
+cd FirebaseContactsApp
+npm install
 ```
 
-Substitute ios for android if not on a Mac.
 
+Make sure that everything is fine by running the development server
+
+```bash
+ionic serve
+````
+
+This  must serve the app under http://localhost:8100 with the skeleton content.
