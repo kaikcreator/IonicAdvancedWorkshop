@@ -1,3 +1,6 @@
+/**
+ * IContact interface
+ */
 export interface IContact{
     name:string;
     last_name:string;
@@ -7,6 +10,10 @@ export interface IContact{
     phone_number:string;
 }
 
+/**
+ * Contact class, implementing {@link IContact} interface
+ * 
+ */
 export class Contact implements IContact{
     public name:string = "";
     public last_name:string = "";
@@ -15,6 +22,11 @@ export class Contact implements IContact{
     public postal_code:number = 0;
     public phone_number:string = "";
     
+    /**
+     * Constructor
+     * 
+     * @param {IContact} contact Optional parameter with the info to populate the new Contact model
+     */
     constructor(contact?:IContact){
         if(contact){
             this.name = contact.name;

@@ -1,11 +1,16 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
-import 'rxjs/add/operator/map';
+import { ModalController } from 'ionic-angular';
 
 import { IContact } from '../../models';
-import { ContactsProvider } from '../../providers';
 import { AddContactPage } from '../add-contact/add-contact';
 
+/**
+ * HomePage component.
+ * 
+ * This is the root page, that displays a list with the contacts
+ * and provides a button to launch the {@link AddContactPage} modal
+ * in order to create new contacts
+ */
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -15,24 +20,18 @@ export class HomePage {
   public contacts:IContact[] = null;
 
   constructor(
-    public navCtrl: NavController, 
-    public contactsProvider: ContactsProvider,
     public modalCtrl: ModalController
   ) { }
 
   ionViewDidLoad(){
-    this.contactsProvider.getContacts().subscribe(items => {
-      this.contacts = items;
-    });
+    //TODO: get contacts from provider and update property
   }
 
   presentAddContactPage(){
     let modal = this.modalCtrl.create(AddContactPage);
     modal.present();
-    modal.onDidDismiss(()=>{
-      this.contactsProvider.getContacts().subscribe(items => {
-        this.contacts = items;
-      });
+    modal.onDidDismiss((contactsHaveChanged)=>{
+      //TODO: update contacts if needed
     })
   }
 
