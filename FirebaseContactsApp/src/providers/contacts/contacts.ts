@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Api } from '../api/api';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/share';
+import 'rxjs/add/observable/throw';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/catch';
 import { IContact } from '../../models/index';
 import { Observable } from 'rxjs/Observable';
 import { HttpParams } from '@angular/common/http';
@@ -21,7 +24,11 @@ export class ContactsProvider {
   getContacts():Observable<IContact[]>{
     const observable = this.api.get('contact',null)
     .map(data => Object.keys(data).map(k => data[k]))
-    .share();
+    .catch(error => {
+      console.log("error here ", error);
+      return [];
+    })    
+    .share()
 
     observable.subscribe(items => {
       return <IContact[]>items;

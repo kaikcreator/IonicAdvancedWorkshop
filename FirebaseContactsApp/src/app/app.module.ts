@@ -10,6 +10,8 @@ import { HomePage } from '../pages/home/home';
 import { AddContactPage } from '../pages/add-contact/add-contact';
 import { Api } from '../providers/api/api';
 import { ContactsProvider } from '../providers/contacts/contacts';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ErrorInterceptor } from '../providers/interceptors/ErrorInterceptor';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { ContactsProvider } from '../providers/contacts/contacts';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi:true},
     Api,
     ContactsProvider
   ]

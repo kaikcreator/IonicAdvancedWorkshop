@@ -21,9 +21,10 @@ export class HomePage {
   ) { }
 
   ionViewDidLoad(){
-    this.contactsProvider.getContacts().subscribe(items => {
+    this.contactsProvider.getContacts()
+    .subscribe(items => {
       this.contacts = items;
-    });
+    })
   }
 
   presentAddContactPage(){
